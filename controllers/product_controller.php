@@ -41,8 +41,21 @@ class ProductController{
 						$product->price = $post_vars["price"];
 						$this->updateProduct($product);
 					break;
+					case "DELETE":
+						$id = preg_replace("/^(\/product\/)/", '', $uri);
+						$this->deleteProduct($id);
+					break;
 				}
 			break;
+		}
+	}
+
+	private function deleteProduct($id){
+		$productRepo = new ProductRepository();
+		if($productRepo->deleteProduct($id)){
+			echo json_encode($id);
+		}else{
+			throw new \Exception("An error has occurred");
 		}
 	}
 
