@@ -1,0 +1,93 @@
+.kanban-column {
+    a {
+        border: 2px solid black;
+        border-radius: 20px;
+        height: 100%;
+    }
+
+    .kanban-draggable-section {
+        list-style-type: none;
+        padding: 0;
+        border-radius: 20px;
+        min-height: 2em;
+        background-color: #f8f9fa;
+    }
+
+    .kanban-draggable-section-product {
+        background-color: #e1e6ea!important;
+    }
+
+    .kanban-card {
+        width: 100%;
+        text-align: center;
+        border-radius: 8px;
+        margin-top: 1em;
+        padding: 0.5em;
+        background-color: #ffebc4;
+
+        &.card-menu {
+            background-color: #a9cbec;
+        }
+        &.card-producto {
+            background-color: #83c187;
+        }
+
+    }
+
+    .kanban-card:first-child {
+        margin-top: 0;
+    }
+
+}
+.kanban-button {
+    border-radius: 100vh;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.handle {
+        background-color: rgba(58, 0, 0, 0.13);
+
+        &:hover{
+            background-color: rgba(0, 0, 0, 0.20);
+        }
+
+    }
+
+    &.remove {
+        background-color: #ff8686;
+
+        &:hover {
+            background-color: #ff5252;
+        }
+    }
+}
+
+.kanban-card-add{
+    cursor: pointer;
+    border: none !important;
+    border-radius: 100px !important;
+    background: #edf0f2 !important;
+
+    &:hover{
+        background: #bdc7d0 !important;
+    }
+
+}
+
+
+input{
+
+    &.kanban-card-label{
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid;
+        width: 95%;
+        background: transparent;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
