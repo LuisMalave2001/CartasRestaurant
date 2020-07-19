@@ -13,6 +13,8 @@ class Product extends Entity {
 
     public $name;
     public $price;
+    public $sequence;
+    
 }
 
 ?>
