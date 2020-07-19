@@ -12,7 +12,7 @@
         id: number
     }
 
-    function renderKanbanTemplate(templateId: string, options: renderTemplateOptions): HTMLElement | undefined{
+    function renderKanbanTemplate(templateId: string, options?: renderTemplateOptions): HTMLElement | undefined{
         let kanbanElementTemplate = <HTMLElement>document.querySelector("#templates #"+ templateId);
         
         if (kanbanElementTemplate){
@@ -26,10 +26,6 @@
                 }
             }
             newSortableElement.id = "";
-            let removeButton = (<HTMLElement>newSortableElement).querySelector(".kanban-button.remove");
-            if (removeButton){
-                removeButton.addEventListener("click", removeSortableItem);
-            }
             newSortableElement.dataset["kanbanId"] = templateId + '-' + id;
             newSortableElement.dataset["serverId"] = '' + id;
             return newSortableElement;
@@ -71,14 +67,7 @@
                 });
                 let $productoItem = $(productoItem);
                 $productoItem.data("price", product["price"])
-                $productoItem.find("input[name='name']").on("change keyup", function(){
-                    let product: Product = {
-                        name: <string>$productoItem.find("input[name='name']").val(),
-                        product_id: <number>$productoItem.data("serverId"),
-                        price: <number>$productoItem.data("price"),
-                    }
-                    updateProduct(product);
-                });
+                setProductItemEvents(productoItem);
                 (this.parentElement)!.insertBefore(productoItem, this.nextSibling);
             }
         });
@@ -102,6 +91,28 @@
         })
     };
 
+    function setProductItemEvents(productItem: HTMLElement){
+        let $productoItem = $(productItem);
+        $productoItem.find("input[name='name']").on("change keyup", function(){
+            let product: Product = {
+                name: <string>$productoItem.find("input[name='name']").val(),
+                product_id: <number>$productoItem.data("serverId"),
+                price: <number>$productoItem.data("price"),
+            }
+            updateProduct(product);
+        });
+
+        $productoItem.find(".kanban-button.remove").on("click", function(){
+            $.ajax({
+                method: "DELETE",
+                url: "/cartas/product/"+$productoItem.data("serverId"),
+                success: function(){
+                    $productoItem.remove();
+                }
+            })
+        });
+    }
+
     function updateProductList(){
         $.ajax({
             method: "GET",
@@ -110,22 +121,16 @@
             success: (productList) => {
                 let buttonAdd = document.getElementById("button-product-add");
                 for(var product of productList){
-                    let productoItem = <HTMLElement>renderKanbanTemplate("kanban-card-producto", {
+                    let productItem = <HTMLElement>renderKanbanTemplate("kanban-card-producto", {
                         "id": product["id"]
                     });
-
-                    let $productoItem = $(productoItem);
-                    $productoItem.find("input[name='name']").val(product["name"]).on("change keyup", function(){
-                        let product: Product = {
-                            name: <string>$productoItem.find("input[name='name']").val(),
-                            product_id: <number>$productoItem.data("serverId"),
-                            price: <number>$productoItem.data("price"),
-                        }
-                        updateProduct(product);
-                    });
-                    productoItem.dataset["price"] =  product["price"];
+                    
+                    let $productoItem = $(productItem);
+                    $productoItem.find("input[name='name']").val(product["name"]);
+                    setProductItemEvents(productItem);
+                    productItem.dataset["price"] =  product["price"];
                     if(buttonAdd){
-                        (buttonAdd.parentElement)!.insertBefore(productoItem, buttonAdd.nextSibling);
+                        (buttonAdd.parentElement)!.insertBefore(productItem, buttonAdd.nextSibling);
                     }
                 }
             }

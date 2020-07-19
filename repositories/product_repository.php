@@ -9,6 +9,21 @@ use restaurant_models\Product;
 
 class ProductRepository{
 
+    public function deleteProduct(int $productId){
+        if($productId){
+            $connection = getConnection();
+            $createProductQuery = "DELETE FROM Products WHERE product_id = :product_id";
+            $statement = $connection->prepare($createProductQuery);
+
+            $statement -> bindParam(":product_id", $productId, PDO::PARAM_INT);
+
+            $result = $statement -> execute();
+            $connection = null;
+            return $result;
+        }
+        return null;
+    }
+
     public function updateProduct(Product $product){
         if($product -> id){
             $connection = getConnection();

@@ -29,10 +29,6 @@ var __assign = (this && this.__assign) || function () {
                 }
             }
             newSortableElement.id = "";
-            var removeButton = newSortableElement.querySelector(".kanban-button.remove");
-            if (removeButton) {
-                removeButton.addEventListener("click", removeSortableItem);
-            }
             newSortableElement.dataset["kanbanId"] = templateId + '-' + id;
             newSortableElement.dataset["serverId"] = '' + id;
             return newSortableElement;
@@ -71,14 +67,7 @@ var __assign = (this && this.__assign) || function () {
                 });
                 var $productoItem = $(productoItem);
                 $productoItem.data("price", product["price"]);
-                $productoItem.find("input[name='name']").on("change keyup", function () {
-                    var product = {
-                        name: $productoItem.find("input[name='name']").val(),
-                        product_id: $productoItem.data("serverId"),
-                        price: $productoItem.data("price"),
-                    };
-                    updateProduct(product);
-                });
+                setProductItemEvents(productoItem);
                 (_this.parentElement).insertBefore(productoItem, _this.nextSibling);
             }
         });
@@ -100,6 +89,26 @@ var __assign = (this && this.__assign) || function () {
         });
     }
     ;
+    function setProductItemEvents(productItem) {
+        var $productoItem = $(productItem);
+        $productoItem.find("input[name='name']").on("change keyup", function () {
+            var product = {
+                name: $productoItem.find("input[name='name']").val(),
+                product_id: $productoItem.data("serverId"),
+                price: $productoItem.data("price"),
+            };
+            updateProduct(product);
+        });
+        $productoItem.find(".kanban-button.remove").on("click", function () {
+            $.ajax({
+                method: "DELETE",
+                url: "/cartas/product/" + $productoItem.data("serverId"),
+                success: function () {
+                    $productoItem.remove();
+                }
+            });
+        });
+    }
     function updateProductList() {
         $.ajax({
             method: "GET",
@@ -107,27 +116,18 @@ var __assign = (this && this.__assign) || function () {
             dataType: "json",
             success: function (productList) {
                 var buttonAdd = document.getElementById("button-product-add");
-                var _loop_1 = function () {
-                    var productoItem = renderKanbanTemplate("kanban-card-producto", {
-                        "id": product["id"]
-                    });
-                    var $productoItem = $(productoItem);
-                    $productoItem.find("input[name='name']").val(product["name"]).on("change keyup", function () {
-                        var product = {
-                            name: $productoItem.find("input[name='name']").val(),
-                            product_id: $productoItem.data("serverId"),
-                            price: $productoItem.data("price"),
-                        };
-                        updateProduct(product);
-                    });
-                    productoItem.dataset["price"] = product["price"];
-                    if (buttonAdd) {
-                        (buttonAdd.parentElement).insertBefore(productoItem, buttonAdd.nextSibling);
-                    }
-                };
                 for (var _i = 0, productList_1 = productList; _i < productList_1.length; _i++) {
                     var product = productList_1[_i];
-                    _loop_1();
+                    var productItem = renderKanbanTemplate("kanban-card-producto", {
+                        "id": product["id"]
+                    });
+                    var $productoItem = $(productItem);
+                    $productoItem.find("input[name='name']").val(product["name"]);
+                    setProductItemEvents(productItem);
+                    productItem.dataset["price"] = product["price"];
+                    if (buttonAdd) {
+                        (buttonAdd.parentElement).insertBefore(productItem, buttonAdd.nextSibling);
+                    }
                 }
             }
         });
