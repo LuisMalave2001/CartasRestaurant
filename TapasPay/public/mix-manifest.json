@@ -1,0 +1,8 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/settings/kanban_style.css": "/css/settings/kanban_style.css",
+    "/css/header_style.css": "/css/header_style.css",
+    "/css/app.css": "/css/app.css",
+    "/js/header/header_behaviour.js": "/js/header/header_behaviour.js",
+    "/js/settings/kanban_behaviour.js": "/js/settings/kanban_behaviour.js"
+}
