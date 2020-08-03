@@ -19,7 +19,185 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c08c61ff-480c-4529-a1e0-2b96c9caf0f5" name="Default Changelist" comment="Changed framework to laravel" />
+    <list default="true" id="c08c61ff-480c-4529-a1e0-2b96c9caf0f5" name="Default Changelist" comment="Changed framework to laravel">
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/blog.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_3_8_20_20_47.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.styleci.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CarteMenuController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EstablishmentController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MenuSetupController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PhotoController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckAge.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckEstablishment.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckForMaintenanceMode.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrustHosts.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listeners/SetUserSessionVariables.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CarteMenu.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Establishment.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Menu.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/BladeSessionDirectivesProviders.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/artisan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/broadcasting.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/cache.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/cors.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/hashing.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/logging.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/queue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/view.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/header_style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/settings/header_style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/settings/kanban_style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/header/header_behaviour.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/settings/kanban_behaviour.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/header/header_behaviour.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/settings/kanban_behaviour.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/menu_setup.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/menu_setup.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/header_style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/settings/kanban_style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/settings/forms/carte_menu.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/settings/forms/menu.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/settings/forms/product.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/settings/lists/carte_menu_list.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/settings/lists/menu_list.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/settings/lists/product_list.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/settings/menu_setup.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/settings/modals.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/console.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/app/public/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/testing/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/CreatesApplication.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/cartas/.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/cartas/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/controllers/cartas_controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/controllers/homepage_controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/controllers/menus_controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/controllers/product_controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/global.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/gulpfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/includes/.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/includes/common/assets_common_css.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/includes/common/assets_common_js.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/includes/common/header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/includes/connection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/includes/templates/kanban_templates.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/includes/util.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/models/restaurant_models.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/repositories/product_repository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/static/css/header_style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/static/css/kanban_style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/static/img/svg/loading.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/static/js/kanban_style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/static/js/kanban_style.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/static/libraries/bootstrap/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/static/scss/header_style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/static/scss/kanban_style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/static/ts/kanban_style.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/static/ts/object_definitions/backend_interaction.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TapaspayRaw/views/homepage.php" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,7 +339,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../php/php.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TapasPay" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -186,7 +364,7 @@
       <option name="presentableId" value="Default" />
       <updated>1596480277796</updated>
       <workItem from="1596480278986" duration="28000" />
-      <workItem from="1596480320334" duration="4702000" />
+      <workItem from="1596480320334" duration="4811000" />
     </task>
     <task id="LOCAL-00001" summary="Changed framework to laravel">
       <created>1596489484267</created>
@@ -195,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596489484267</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Changed framework to laravel">
+      <created>1596489752724</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1596489752724</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,66 +411,66 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596480476115" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596480412995">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596489829664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596480412995" />
-    <state width="1877" height="328" key="GridCell.Tab.0.bottom" timestamp="1596489423146">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596489829664" />
+    <state width="1877" height="328" key="GridCell.Tab.0.bottom" timestamp="1596489832230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="328" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596489423146" />
-    <state width="1877" height="328" key="GridCell.Tab.0.center" timestamp="1596489423146">
+    <state width="1877" height="328" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596489832230" />
+    <state width="1877" height="328" key="GridCell.Tab.0.center" timestamp="1596489832230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="328" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596489423146" />
-    <state width="1877" height="328" key="GridCell.Tab.0.left" timestamp="1596489423146">
+    <state width="1877" height="328" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596489832230" />
+    <state width="1877" height="328" key="GridCell.Tab.0.left" timestamp="1596489832230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="328" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596489423146" />
-    <state width="1877" height="328" key="GridCell.Tab.0.right" timestamp="1596489423146">
+    <state width="1877" height="328" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596489832230" />
+    <state width="1877" height="328" key="GridCell.Tab.0.right" timestamp="1596489832230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="328" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596489423146" />
-    <state width="1877" height="328" key="GridCell.Tab.1.bottom" timestamp="1596489423146">
+    <state width="1877" height="328" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596489832230" />
+    <state width="1877" height="328" key="GridCell.Tab.1.bottom" timestamp="1596489832230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="328" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596489423146" />
-    <state width="1877" height="328" key="GridCell.Tab.1.center" timestamp="1596489423146">
+    <state width="1877" height="328" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596489832230" />
+    <state width="1877" height="328" key="GridCell.Tab.1.center" timestamp="1596489832230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="328" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596489423146" />
-    <state width="1877" height="328" key="GridCell.Tab.1.left" timestamp="1596489423146">
+    <state width="1877" height="328" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596489832230" />
+    <state width="1877" height="328" key="GridCell.Tab.1.left" timestamp="1596489832230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="328" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596489423146" />
-    <state width="1877" height="328" key="GridCell.Tab.1.right" timestamp="1596489423146">
+    <state width="1877" height="328" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596489832230" />
+    <state width="1877" height="328" key="GridCell.Tab.1.right" timestamp="1596489832230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="328" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596489423146" />
-    <state width="1877" height="328" key="GridCell.Tab.2.bottom" timestamp="1596489423147">
+    <state width="1877" height="328" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596489832230" />
+    <state width="1877" height="328" key="GridCell.Tab.2.bottom" timestamp="1596489832231">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="328" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596489423147" />
-    <state width="1877" height="328" key="GridCell.Tab.2.center" timestamp="1596489423146">
+    <state width="1877" height="328" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596489832231" />
+    <state width="1877" height="328" key="GridCell.Tab.2.center" timestamp="1596489832230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="328" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596489423146" />
-    <state width="1877" height="328" key="GridCell.Tab.2.left" timestamp="1596489423146">
+    <state width="1877" height="328" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596489832230" />
+    <state width="1877" height="328" key="GridCell.Tab.2.left" timestamp="1596489832230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="328" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596489423146" />
-    <state width="1877" height="328" key="GridCell.Tab.2.right" timestamp="1596489423146">
+    <state width="1877" height="328" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596489832230" />
+    <state width="1877" height="328" key="GridCell.Tab.2.right" timestamp="1596489832231">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="328" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596489423146" />
+    <state width="1877" height="328" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596489832231" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1596480437690">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596480437690" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1596489490818">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1596489761917">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1596489490818" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1596489761917" />
     <state x="616" y="242" key="run.anything.popup" timestamp="1596480332271">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
