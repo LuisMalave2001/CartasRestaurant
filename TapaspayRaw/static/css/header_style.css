@@ -1,0 +1,58 @@
+header {
+  position: sticky;
+  width: 100%;
+  z-index: 100 !important;
+  top: 0; }
+
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: white;
+  z-index: 100; }
+  .loading img {
+    position: absolute;
+    left: 50%;
+    top: 50%; }
+
+#kanban-action-menu {
+  /*border: 1px solid black;*/
+  padding: 0;
+  text-align: center;
+  width: 300px; }
+  @media screen and (max-width: 576px) {
+    #kanban-action-menu {
+      width: 100%; } }
+  #kanban-action-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+  #kanban-action-menu li {
+    padding: 0.5em;
+    cursor: pointer;
+    background-color: #fffbed; }
+    #kanban-action-menu li:hover {
+      background-color: #f3efe0; }
+    #kanban-action-menu li.kanban-action-delete span.icon {
+      display: inline-block;
+      width: 30px;
+      border-radius: 100px;
+      background: #ff8585; }
+    #kanban-action-menu li.kanban-action-delete:hover span.icon {
+      background: #ff5c5c; }
+    #kanban-action-menu li.kanban-action-modify span.icon {
+      display: inline-block;
+      width: 30px;
+      border-radius: 100px;
+      background: #ffffd1; }
+    #kanban-action-menu li.kanban-action-modify:hover span.icon {
+      background: #ffff8f; }
+    #kanban-action-menu li.kanban-action-active span.icon {
+      display: inline-block;
+      width: 30px;
+      border-radius: 100px;
+      background: #e6e5ff; }
+    #kanban-action-menu li.kanban-action-active:hover span.icon {
+      background: #bfbdff; }

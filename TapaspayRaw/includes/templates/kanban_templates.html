@@ -1,0 +1,36 @@
+<div id="templates" style="display: none;">
+    <article class="kanban-card card-producto" id="kanban-card-producto">
+        <div class="d-flex">
+            <div class="col-2 kanban-button handle"><i class="fa fa-arrows"></i></div>
+            <div class="col-8 kanban-card-name"><input type="text" name="name" class="w-100 kanban-card-label"/></div>
+            <div class="col-2 kanban-button remove"><i class="fa fa-ellipsis-v"></i></div>
+        </div>
+    </article>
+    
+    <article class="kanban-card card-menu" id="kanban-card-menu">
+        <div class="d-flex">
+            <div class="col-2 kanban-button handle"><i class="fa fa-arrows"></i></div>
+            <div class="col-8 kanban-card-name"><input type="text" name="name" class="w-100 kanban-card-label"></div>
+            <div class="col-2 kanban-button remove"><i class="fa fa-trash-o"></i></div>
+        </div>
+        <section class="p-2 mt-2 kanban-draggable-section kanban-draggable-section-product"></section>
+    </article>
+
+    <article class="kanban-card card-carta" id="kanban-card-carta">
+        <div class="d-flex">
+            <div class="col-2 kanban-button handle"><i class="fa fa-arrows"></i></div>
+            <div class="col-8 kanban-card-name"><input type="text" name="name" class="w-100 kanban-card-label"></div>
+            <div class="col-2 kanban-button remove"><i class="fa fa-trash-o"></i></div>
+        </div>
+        <section class="p-2 mt-2 kanban-draggable-section kanban-draggable-section-all"></section>
+    </article>
+</div>
+
+
+<article id="kanban-action-menu">
+    <ul>
+        <li class="kanban-action-delete">Delete <span class="icon"><i class="fa fa-trash-o"></i></span></li>
+        <li class="kanban-action-modify">Modify <span class="icon"><i class="fa fa-pencil"></i></span></li>
+        <li class="kanban-action-active">Active <span class="icon"><i class="fa fa-eye"></i></span></li>
+    </ul>
+</article>
