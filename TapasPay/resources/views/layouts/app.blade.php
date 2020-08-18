@@ -1,52 +1,53 @@
 <!doctype html>
+
+<?php if (Session::has("user_current_establishment")) {
+    Session::get("user_current_establishment")->refresh();
+} ?>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Tapaspay') }}</title>
 
-    <!-- Scripts -->
-    <script defer src="https://use.fontawesome.com/f0b4744be7.js"></script>
-    <script defer src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.19/lodash.core.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js"></script>
-
-    <script defer src="{{ mix('js/header/header_behaviour.js') }}"></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ mix('/css/header_style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ mix('/css/styles.css') }}">
 
     <!-- Custom head tags -->
-    @yield('head')
+    @yield('styles')
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+
+<div class="container-fluid">
+    <div class="row">
+        <header class="col p-0">
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Tapaspay') }}
                 </a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li><a class="nav-link" href="{{ route("choose_menu") }}">{{ __("header.choose_menu") }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -63,27 +64,34 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <select class="w-100 company-select" name="current_establishment_id" id="current_establishment_id">
+                                <select class="w-100 company-select" name="current_establishment_id"
+                                        id="current_establishment_id">
                                     @foreach (Auth::user()->establishments as $establishment)
                                         <option value="{{ $establishment->id }}"
-                                                {{ Session::get("user_current_establishment")->id == $establishment->id ? 'selected' : ''}}
-                                                >{{ $establishment->name }}</option>
+                                            {{ Session::get("user_current_establishment")->id == $establishment->id ? 'selected' : ''}}
+                                        >{{ $establishment->name }}</option>
                                     @endforeach
                                 </select>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href=" {{ route("edit_establishment_form") }} ">
+                                        {{ __("header.edit_establishment") }}</a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                                 document.getElementById('logout-form').submit();">
+                                        {{ __('header.logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
@@ -91,14 +99,26 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-
-        <div id="loader"><div>
+            </nav>
+        </header>
     </div>
+
+</div>
+
+<main class="container-fluid">
+    @yield('content')
+</main>
+
+<div id="loader">
+    <div>
+
+        <!-- Scripts -->
+        <script defer src="https://use.fontawesome.com/f0b4744be7.js"></script>
+
+        <script defer src=" {{ asset('js/manifest.js') }} "></script>
+        <script defer src=" {{ asset('js/vendor.js') }} "></script>
+        <script defer src=" {{ asset('js/app.js') }} "></script>
+@yield("scripts")
+
 </body>
 </html>

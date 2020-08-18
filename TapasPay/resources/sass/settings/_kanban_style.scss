@@ -1,0 +1,30 @@
+
+@import '~bootstrap/scss/bootstrap';
+
+.btn-add-element {
+    border-radius: 100px;
+    background: #edf0f2;
+
+    &:hover{
+        background: #bdc7d0;
+    }
+}
+
+.handle {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+
+#menus {
+    .product-price, .product-action {
+        display: none !important;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

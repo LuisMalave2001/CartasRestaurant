@@ -11,9 +11,6 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .js('resources/js/settings/kanban_behaviour.js', 'public/js/settings')
-   .js('resources/js/header/header_behaviour.js', 'public/js/header')
-    .sass('resources/sass/settings/kanban_style.scss', 'public/css/settings')
-    .sass('resources/sass/header_style.scss', 'public/css')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.js("resources/js/app.js", "public/js").extract(["bootstrap", "sortablejs", "qrious"]);
+
+mix.sass('resources/sass/styles.scss', 'public/css/');

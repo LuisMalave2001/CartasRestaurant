@@ -44,4 +44,13 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Establishment', 'establishment_user');
     }
 
+    public function getCurrentEstablishment(){
+
+        if (!isset($this->currentEstablishment)) {
+            $this->currentEstablishment = $this->establishments()->first();
+        }
+
+        return $this->currentEstablishment;
+    }
+
 }

@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -44,6 +45,11 @@ class ProductController extends Controller
     {
 
         $product = Product::find($id);
+
+        if ($request->has("product_image")) {
+            $path = $request->file("product_image")->store("public/images/product");
+            $product->image_path = Storage::url($path);;
+        }
 
         $product->name = $request->input('name') ?: $product->name;
         $product->price = floatval($request->input('price')) ?: $product->price;

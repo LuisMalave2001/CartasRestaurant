@@ -16,13 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/google/redirect', 'Auth\LoginController@redirectToProvider');
+Route::get('/google/callback', 'Auth\LoginController@handleProviderCallback');
 
+Route::get('/choose-menu', 'ChooseMenuController@showMenuList')->name("choose_menu");
+Route::post('/update-shopping-items-count', 'ChooseMenuController@updateShoppingItems')->name("update_shopping_items_count");
+
+Route::get("/table/{tableHashId}", "Shopping\TableShoppingController@showCarteMenuList")->name("table_shopping");
 
 Route::middleware('auth')->group(function(){
 
     Route::any('/', "MenuSetupController@index");
 
-    Route::put('/establishment/{id}', 'EstablishmentController@change')->middleware("checkEstablishment");
+    Route::put('/establishment/{id}', 'Establishment\EstablishmentController@change')->middleware("checkEstablishment");
 
 
     Route::post('/product', 'ProductController@create');
@@ -38,7 +44,15 @@ Route::middleware('auth')->group(function(){
     Route::put('/carte-menu/{id}', 'CarteMenuController@update')->where('id', '[0-9]+');
     Route::delete('/carte-menu/{id}', 'CarteMenuController@remove')->where('id', '[0-9]+');
 
+    // EstablishmentController
+    Route::get("/edit-establishment", "Establishment\EstablishmentController@editView")->name("edit_establishment_form");
+    Route::post("/edit-establishment/{establishment_id}", "Establishment\EstablishmentController@update")
+        ->name("edit_establishment_update");
+
+    Route::get("/see-tables", "Establishment\SeeTablesController")->name("see_tables");
+
 });
+
 
 Auth::routes();
 

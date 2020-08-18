@@ -11,6 +11,7 @@
         "actions" => 'Actions',
         "carte-menus" => 'Á la carte menus',
         "add_carte-menu" => 'Add Á la carte menu..',
+        "save" => 'Save',
     ]
 
 ?>

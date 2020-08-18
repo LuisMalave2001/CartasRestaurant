@@ -6,6 +6,7 @@ use App\Models\CarteMenu;
 use App\Models\Menu;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MenuSetupController extends Controller
 {
@@ -30,25 +31,23 @@ class MenuSetupController extends Controller
         $menus = [];
         $carte_menus = [];
 
-        if (session()->has('user_current_establishment')) {
-            $current_establishment = session()->get('user_current_establishment');
-            $products = Product::where('establishment_id', $current_establishment->id)
-                                ->orderBy('name')
-                                ->orderBy('price')
-                                ->get();
-
-
-            $menus = Menu::where('establishment_id', $current_establishment->id)
-                           ->orderBy('name', 'asc')
-                           ->orderBy('price', 'desc')
-                           ->get();
-
-            $carte_menus = CarteMenu::where('establishment_id', $current_establishment->id)
-                            ->orderBy('name', 'asc')
+        $current_establishment = session()->get("user_current_establishment");
+        $products = Product::where('establishment_id', $current_establishment->id)
+                            ->orderBy('name')
+                            ->orderBy('price')
                             ->get();
 
-        }
-        return view('settings.menu_setup', [
+
+        $menus = Menu::where('establishment_id', $current_establishment->id)
+                       ->orderBy('name', 'asc')
+                       ->orderBy('price', 'desc')
+                       ->get();
+
+        $carte_menus = CarteMenu::where('establishment_id', $current_establishment->id)
+                        ->orderBy('name', 'asc')
+                        ->get();
+
+        return view('pages.menu_setup.menu_setup', [
             'products' => $products,
             'menus' => $menus,
             'carte_menus' => $carte_menus,

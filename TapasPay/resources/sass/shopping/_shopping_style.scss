@@ -1,0 +1,14 @@
+.shopping-image {
+    transform: translateY(-50%);
+    &-container {
+        overflow: hidden;
+        height: 8em;
+        cursor: pointer;
+    }
+}
+
+dl { width: 100%; }
+dt { float: left; width: 80%; overflow: hidden; white-space: nowrap }
+dd { float: left; width: 20%; overflow: hidden }
+
+dt span:after { content: " ......................................................................................................................................................................................................................................................" }

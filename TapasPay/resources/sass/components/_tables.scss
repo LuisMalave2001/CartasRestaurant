@@ -1,0 +1,36 @@
+#products {
+    td {
+        &.handle {
+            width: 10%;
+        }
+        &.product-price {
+            width: 10%;
+        }
+        &.product-action {
+            width: 10%;
+        }
+    }
+}
+
+#menus {
+    td {
+        &.handle {
+            width: 10%;
+        }
+        &.menu-price {
+            width: 10%;
+        }
+        &.menu-action {
+            width: 10%;
+        }
+
+        &.menu-product-list {
+            &.handle {
+                width: 10%;
+            }
+        }
+
+    }
+
+
+}
