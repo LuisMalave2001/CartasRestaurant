@@ -22,7 +22,6 @@ Route::get('/google/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('/choose-menu', 'ChooseMenuController@showMenuList')->name("choose_menu");
 Route::post('/update-shopping-items-count', 'ChooseMenuController@updateShoppingItems')->name("update_shopping_items_count");
 
-Route::get("/table/{tableHashId}", "Shopping\TableShoppingController@showCarteMenuList")->name("table_shopping");
 
 Route::middleware('auth')->group(function(){
 
@@ -30,6 +29,18 @@ Route::middleware('auth')->group(function(){
 
     Route::put('/establishment/{id}', 'Establishment\EstablishmentController@change')->middleware("checkEstablishment");
 
+    //Shopping
+    Route::get("/table/{tableHashId}", "Shopping\TableShoppingController@showCarteMenuList")->name("table_shopping");
+    Route::get("/table_orders/cart/{tableHashId}", "Shopping\TableShoppingController@showClientCurrentShoppingCart")->name("table_shopping_cart");
+    Route::get("/table_orders/{tableHashId}", "Shopping\TableShoppingController@showClientOrderList")->name("table_shopping_order_list");
+
+    Route::post("/table/order_line_cookie/{tableHashId}", "Shopping\TableShoppingController@addCookieOrderLine")->name("add_cookie_order_line");
+
+    // Orders
+    Route::get('/pending_order', 'Orders\OrderController@getAllPendingOrders');
+    Route::get('/orders/{tableHashId}', 'Orders\OrderController@getAllTableOrders');
+    Route::post('/orders/{tableHashId}', 'Orders\OrderController@sendOrder');
+    Route::put('/order/{orderId}', 'Orders\OrderController@changeStatus');
 
     Route::post('/product', 'ProductController@create');
     Route::put('/product/{id}', 'ProductController@update')->where('id', '[0-9]+');

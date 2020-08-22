@@ -22,89 +22,45 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c08c61ff-480c-4529-a1e0-2b96c9caf0f5" name="Default Changelist" comment="Changed framework to laravel">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ChooseMenuController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Establishment/SeeTablesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Shopping/TableShoppingController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/TableController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_09_134439_add_tables_to_establishments.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_201443_add_path_image_to_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_16_194113_create_table_message_in_establishments.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_18_205832_create_orders.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product/AAAAAAAAAAAAAAA.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/app.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/vendor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/vendor.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/establishment_menu_settings/establishment_menu_settings.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/establishment_menu_settings/render_qr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/layout/header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/shopping/images_modal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/show_list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/es/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/es/establishment_edit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/es/header.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/components/_qr.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/components/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/settings/_kanban_style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/shopping/_shopping_style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/styles.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/choose_menus/show_list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/establishment_edit/establishment_edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/establishment_edit/see_tables.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/menu_setup/menu_setup.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/shopping/establishment_items.blade.php" afterDir="false" />
+    <list default="true" id="c08c61ff-480c-4529-a1e0-2b96c9caf0f5" name="Default Changelist" comment="Added some features">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Longpolling/OrderLongPollingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Orders/OrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/OrderLine.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/OrderStatus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/websockets.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_19_231834_create_order_session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_20_181310_add_path_image_to_menus_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/shopping/order_button.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/shopping/sending_order.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/utils/incremental_number_widget.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/es/shopping.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/components/_shopping.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/shopping/client_order_list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/shopping/shopping_cart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EstablishmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Establishment/EstablishmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MenuSetupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MenuSetupController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/CarteMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CarteMenu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Shopping/TableShoppingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Shopping/TableShoppingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Establishment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Establishment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cors.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/header_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/settings/header_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/settings/kanban_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/broadcasting.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/broadcasting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_18_205832_create_orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_18_205832_create_orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/header/header_behaviour.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/manifest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/settings/kanban_behaviour.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/header/header_behaviour.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/settings/kanban_behaviour.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/menu_setup.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/menu_setup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/es/menu_setup.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/menu_setup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/header_style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_header_style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/settings/kanban_style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/settings/forms/carte_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/menu_setup/forms/carte_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/settings/forms/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/menu_setup/forms/menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/settings/forms/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/menu_setup/forms/product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/settings/lists/carte_menu_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/menu_setup/lists/carte_menu_list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/settings/lists/menu_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/menu_setup/lists/menu_list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/settings/lists/product_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/menu_setup/lists/product_list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/settings/menu_setup.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/settings/modals.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/menu_setup/modals/modals.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/establishment_menu_settings/establishment_menu_settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/establishment_menu_settings/establishment_menu_settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/layout/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/layout/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/show_list.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/establishment_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/establishment_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/menu_setup/forms/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/menu_setup/forms/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/menu_setup/lists/menu_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/menu_setup/lists/menu_list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/shopping/establishment_items.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/shopping/establishment_items.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +85,7 @@
   <component name="PhpServers">
     <servers>
       <server host="localhost" id="d974bd53-2738-40a5-991b-a44c60273020" name="localhost" />
+      <server host="192.168.1.140" id="77a03db8-4065-4bec-8bbc-8e7b251bfa22" name="192.168.1.140" />
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4.7">
@@ -239,6 +196,24 @@
       <path value="$PROJECT_DIR$/vendor/vinkla/hashids" />
       <path value="$PROJECT_DIR$/vendor/hashids/hashids" />
       <path value="$PROJECT_DIR$/vendor/graham-campbell/manager" />
+      <path value="$PROJECT_DIR$/vendor/react/dns" />
+      <path value="$PROJECT_DIR$/vendor/react/cache" />
+      <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
+      <path value="$PROJECT_DIR$/vendor/ringcentral/psr7" />
+      <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-websockets" />
+      <path value="$PROJECT_DIR$/vendor/clue/buzz-react" />
+      <path value="$PROJECT_DIR$/vendor/cboden/ratchet" />
+      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
+      <path value="$PROJECT_DIR$/vendor/ratchet/rfc6455" />
+      <path value="$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge" />
+      <path value="$PROJECT_DIR$/vendor/react/stream" />
+      <path value="$PROJECT_DIR$/vendor/react/socket" />
+      <path value="$PROJECT_DIR$/vendor/react/promise-timer" />
+      <path value="$PROJECT_DIR$/vendor/react/promise-stream" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/react/http-client" />
+      <path value="$PROJECT_DIR$/vendor/react/event-loop" />
     </include_path>
   </component>
   <component name="ProjectId" id="1fbIHPA8BOlefeqOl3LfSqiXRs2" />
@@ -255,7 +230,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Models" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/es" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -267,15 +242,15 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TapasPay\resources\js\utils" />
       <recent name="C:\xampp\htdocs\TapasPay\app\Http\Controllers\Establishment" />
       <recent name="C:\xampp\htdocs\TapasPay\resources\js\establishment_menu_settings" />
       <recent name="C:\xampp\htdocs\TapasPay\resources\js\layout" />
       <recent name="C:\xampp\htdocs\TapasPay\resources\js" />
-      <recent name="C:\xampp\htdocs\TapasPay\resources\views\pages\establishment_edit" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\TapasPay\app\Models" />
       <recent name="C:\xampp\htdocs\TapasPay\resources\lang\es" />
+      <recent name="C:\xampp\htdocs\TapasPay\app\Models" />
       <recent name="C:\xampp\htdocs\TapasPay\storage\app\public\images" />
       <recent name="C:\xampp\htdocs\TapasPay\storage\app\public\images\product" />
       <recent name="C:\xampp\htdocs\TapasPay\public\images\product" />
@@ -312,7 +287,10 @@
       <workItem from="1597512445844" duration="601000" />
       <workItem from="1597570313818" duration="22391000" />
       <workItem from="1597698855683" duration="1473000" />
-      <workItem from="1597783857706" duration="470000" />
+      <workItem from="1597783857706" duration="2706000" />
+      <workItem from="1597864937802" duration="13499000" />
+      <workItem from="1597941658429" duration="13063000" />
+      <workItem from="1598040662920" duration="6674000" />
     </task>
     <task id="LOCAL-00001" summary="Changed framework to laravel">
       <created>1596489484267</created>
@@ -342,7 +320,21 @@
       <option name="project" value="LOCAL" />
       <updated>1596490205303</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added some features">
+      <created>1597784408302</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1597784408302</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added some features">
+      <created>1597784450787</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1597784450787</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +359,8 @@
     </ignored-roots>
     <MESSAGE value="Changed framework to laravel" />
     <MESSAGE value="Changed to laravel framework" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed to laravel framework" />
+    <MESSAGE value="Added some features" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some features" />
   </component>
   <component name="WindowStateProjectService">
     <state x="540" y="175" key="#CLI_Interpreters" timestamp="1596480432621">
@@ -394,66 +387,74 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596917341245" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597593318006">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597947812619">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597593318006" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597947812619" />
+    <state x="779" y="210" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1" timestamp="1598041346014">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="779" y="210" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1/0.0.1920.1040@0.0.1920.1040" timestamp="1598041346014" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596480412995">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596480412995" />
-    <state width="1877" height="242" key="GridCell.Tab.0.bottom" timestamp="1597784313149">
+    <state width="938" height="191" key="GridCell.Tab.0.bottom" timestamp="1598044832303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597784313149" />
-    <state width="1877" height="242" key="GridCell.Tab.0.center" timestamp="1597784313149">
+    <state width="938" height="191" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598044832303" />
+    <state width="938" height="191" key="GridCell.Tab.0.center" timestamp="1598044832303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597784313149" />
-    <state width="1877" height="242" key="GridCell.Tab.0.left" timestamp="1597784313149">
+    <state width="938" height="191" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598044832303" />
+    <state width="938" height="191" key="GridCell.Tab.0.left" timestamp="1598044832302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597784313149" />
-    <state width="1877" height="242" key="GridCell.Tab.0.right" timestamp="1597784313149">
+    <state width="938" height="191" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598044832302" />
+    <state width="938" height="191" key="GridCell.Tab.0.right" timestamp="1598044832303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597784313149" />
-    <state width="1877" height="242" key="GridCell.Tab.1.bottom" timestamp="1597609709827">
+    <state width="938" height="191" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598044832303" />
+    <state width="938" height="191" key="GridCell.Tab.1.bottom" timestamp="1598044832303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597609709827" />
-    <state width="1877" height="242" key="GridCell.Tab.1.center" timestamp="1597609709827">
+    <state width="938" height="191" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598044832303" />
+    <state width="938" height="191" key="GridCell.Tab.1.center" timestamp="1598044832303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597609709827" />
-    <state width="1877" height="242" key="GridCell.Tab.1.left" timestamp="1597609709827">
+    <state width="938" height="191" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598044832303" />
+    <state width="938" height="191" key="GridCell.Tab.1.left" timestamp="1598044832303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597609709827" />
-    <state width="1877" height="242" key="GridCell.Tab.1.right" timestamp="1597609709827">
+    <state width="938" height="191" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598044832303" />
+    <state width="938" height="191" key="GridCell.Tab.1.right" timestamp="1598044832303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597609709827" />
-    <state width="1877" height="242" key="GridCell.Tab.2.bottom" timestamp="1597609709827">
+    <state width="938" height="191" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598044832303" />
+    <state width="938" height="191" key="GridCell.Tab.2.bottom" timestamp="1598044832303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597609709827" />
-    <state width="1877" height="242" key="GridCell.Tab.2.center" timestamp="1597609709827">
+    <state width="938" height="191" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598044832303" />
+    <state width="938" height="191" key="GridCell.Tab.2.center" timestamp="1598044832303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597609709827" />
-    <state width="1877" height="242" key="GridCell.Tab.2.left" timestamp="1597609709827">
+    <state width="938" height="191" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598044832303" />
+    <state width="938" height="191" key="GridCell.Tab.2.left" timestamp="1598044832303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597609709827" />
-    <state width="1877" height="242" key="GridCell.Tab.2.right" timestamp="1597609709827">
+    <state width="938" height="191" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598044832303" />
+    <state width="938" height="191" key="GridCell.Tab.2.right" timestamp="1598044832303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="242" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597609709827" />
+    <state width="938" height="191" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598044832303" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1596980960335">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1596980960335" />
+    <state x="775" y="454" key="ReplaceDuplicatesPrompt" timestamp="1598041347803">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="775" y="454" key="ReplaceDuplicatesPrompt/0.0.1920.1040@0.0.1920.1040" timestamp="1598041347803" />
     <state x="161" y="166" key="SettingsEditor" timestamp="1597784330146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -462,10 +463,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="681" y="261" width="570" height="524" key="StructurePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1597610065428" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1596490209222">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597784460676">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1596490209222" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597784460676" />
     <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597606701424">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -474,18 +475,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="512" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1596653840249" />
-    <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1597612112302">
+    <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1597959041505">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="119" width="585" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597612112302" />
-    <state x="616" y="242" key="run.anything.popup" timestamp="1597606049009">
+    <state x="667" y="119" width="585" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597959041505" />
+    <state x="616" y="242" key="run.anything.popup" timestamp="1598040885359">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597606049009" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597614631931">
+    <state x="616" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598040885359" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598045540439">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597614631931" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598045540439" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -499,6 +500,21 @@
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php</url>
           <line>4</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/pages/shopping/establishment_items.blade.php</url>
+          <line>118</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/pages/shopping/shopping_cart.blade.php</url>
+          <line>19</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/pages/shopping/shopping_cart.blade.php</url>
+          <line>16</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

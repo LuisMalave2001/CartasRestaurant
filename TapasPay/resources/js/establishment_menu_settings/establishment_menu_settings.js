@@ -178,11 +178,11 @@
 
                             updateImageDependInput(productImgInput, productImgElement);
 
-                            productForm.querySelector(".form-product-name").value = productName;
-                            productForm.querySelector(".form-product-price").value = productPrice;
                             productImgElement.src = image_path;
 
                             productForm.action += "/" + productRow.dataset.id;
+                            productForm.querySelector(".form-product-name").value = productName;
+                            productForm.querySelector(".form-product-price").value = productPrice;
 
                             _appendFormToModal(createModal, productForm);
                         }
@@ -298,8 +298,17 @@
                                 method: "PUT"
                             });
 
+                            const image_path = menuRow.dataset.imgUrl;
                             let menuName = menuRow.querySelector(".menu-name").textContent;
                             let menuPrice = menuRow.querySelector(".menu-price").textContent;
+
+                            let menuImgElement = menuForm.querySelector(".js_menu_image");
+                            let menuImgInput = menuForm.querySelector(".js_menu_image_input");
+
+                            updateImageDependInput(menuImgInput, menuImgElement);
+
+                            menuImgElement.src = image_path ? image_path : menuImgElement.dataset.errorImage;
+
 
                             menuForm.querySelector(".form-menu-name").value = menuName;
                             menuForm.querySelector(".form-menu-price").value = menuPrice;

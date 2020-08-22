@@ -11046,3 +11046,33 @@ dt span:after {
   width: 100%;
 }
 
+.shopping-cart-bar {
+  position: fixed;
+  bottom: 0;
+  z-index: 1020;
+  background: white;
+  height: 4em;
+  left: 0 !important;
+  margin: 0;
+}
+
+body {
+  margin-bottom: 4em;
+}
+
+.shopping-list .shopping-element {
+  margin-bottom: 1em;
+}
+
+.shopping-list .shopping-element:nth-child(odd) {
+  background: #d4d4d4;
+}
+
+.shopping-list .shopping-element:nth-child(even) {
+  background: #bcbcbc;
+}
+
+.shopping-list .shopping-element img {
+  background: white;
+}
+

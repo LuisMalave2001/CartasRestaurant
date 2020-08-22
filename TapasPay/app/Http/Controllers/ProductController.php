@@ -27,6 +27,12 @@ class ProductController extends Controller
         $user_current_establishment = session()->get("user_current_establishment");
 
         $product = new Product();
+
+        if ($request->has("product_image")) {
+            $path = $request->file("product_image")->store("public/images/product");
+            $product->image_path = Storage::url($path);;
+        }
+
         $product->name = $request->input('name') ?: 'Default product';
         $product->price = floatval($request->input('price') ?: 0.0);
         $product->establishment_id = $user_current_establishment->id;

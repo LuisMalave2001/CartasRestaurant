@@ -19,7 +19,7 @@
             </thead>
             <tbody>
                 @foreach ($menus as $menu)
-                    <tr data-id="{{ $menu->id }}" class="js-menu-product-properties">
+                    <tr data-id="{{ $menu->id }}" data-img-url="{{ $menu->image_path }}" class="js-menu-product-properties">
 
                         <!-- fields -->
                         <td class="menu-name">{{ $menu->name }}</td>

@@ -6,6 +6,7 @@
     //
 
     let currentEstablishmentEl = document.getElementById("current_establishment_id");
+    const loadingOnClickElementList = document.querySelectorAll(".loading-on-click");
 
     //
     // Methods
@@ -42,6 +43,13 @@
     //
     // Init & Event Listeners
     //
+    loadingOnClickElementList.forEach(loadingOnClickElement => {
+        const showLoader = () => {
+            document.getElementById("loader").style.display = 'block';
+        };
+
+        loadingOnClickElement.addEventListener("click", showLoader);
+    });
 
     if (currentEstablishmentEl) {
         currentEstablishmentEl.onchange = handlerChangeEstablishment;

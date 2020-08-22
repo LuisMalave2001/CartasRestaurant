@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
@@ -46,6 +47,11 @@ class MenuController extends Controller
     {
 
         $menu = Menu::find($id);
+
+        if ($request->has("menu_image")) {
+            $path = $request->file("menu_image")->store("public/images/menu");
+            $menu->image_path = Storage::url($path);;
+        }
 
         $menu->name = $request->input('name') ?: $menu->name;
         $menu->price = floatval($request->input('price')) ?: $menu->price;

@@ -13561,14 +13561,18 @@ if (document.querySelector(".js-menu-setup-page")) {
 }
 
 if (document.querySelector(".js-shopping-list")) {
+  __webpack_require__(/*! ./shopping/order_button */ "./resources/js/shopping/order_button.js");
+
   __webpack_require__(/*! ./shopping/images_modal */ "./resources/js/shopping/images_modal.js");
+
+  __webpack_require__(/*! ./shopping/sending_order */ "./resources/js/shopping/sending_order.js");
 }
+
+if (document.querySelector(".js-shopping-list")) {}
 
 if (document.querySelector(".js-qr-block")) {
   __webpack_require__(/*! ./establishment_menu_settings/render_qr */ "./resources/js/establishment_menu_settings/render_qr.js");
 }
-
-__webpack_require__(/*! ./show_list */ "./resources/js/show_list.js");
 
 /***/ }),
 
@@ -13751,10 +13755,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             var productImgElement = productForm.querySelector(".js_product_image");
             var productImgInput = productForm.querySelector(".js_product_image_input");
             updateImageDependInput(productImgInput, productImgElement);
-            productForm.querySelector(".form-product-name").value = productName;
-            productForm.querySelector(".form-product-price").value = productPrice;
             productImgElement.src = image_path;
             productForm.action += "/" + productRow.dataset.id;
+            productForm.querySelector(".form-product-name").value = productName;
+            productForm.querySelector(".form-product-price").value = productPrice;
 
             _appendFormToModal(createModal, productForm);
           }
@@ -13854,8 +13858,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               form: menuForm,
               method: "PUT"
             });
+            var image_path = menuRow.dataset.imgUrl;
             var menuName = menuRow.querySelector(".menu-name").textContent;
             var menuPrice = menuRow.querySelector(".menu-price").textContent;
+            var menuImgElement = menuForm.querySelector(".js_menu_image");
+            var menuImgInput = menuForm.querySelector(".js_menu_image_input");
+            updateImageDependInput(menuImgInput, menuImgElement);
+            menuImgElement.src = image_path ? image_path : menuImgElement.dataset.errorImage;
             menuForm.querySelector(".form-menu-name").value = menuName;
             menuForm.querySelector(".form-menu-price").value = menuPrice;
             menuForm.action += "/" + menuRow.dataset.id;
@@ -14025,7 +14034,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   // Variables
   //
 
-  var currentEstablishmentEl = document.getElementById("current_establishment_id"); //
+  var currentEstablishmentEl = document.getElementById("current_establishment_id");
+  var loadingOnClickElementList = document.querySelectorAll(".loading-on-click"); //
   // Methods
   //
 
@@ -14055,6 +14065,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   // Init & Event Listeners
   //
 
+
+  loadingOnClickElementList.forEach(function (loadingOnClickElement) {
+    var showLoader = function showLoader() {
+      document.getElementById("loader").style.display = 'block';
+    };
+
+    loadingOnClickElement.addEventListener("click", showLoader);
+  });
 
   if (currentEstablishmentEl) {
     currentEstablishmentEl.onchange = handlerChangeEstablishment;
@@ -14110,52 +14128,185 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 /***/ }),
 
-/***/ "./resources/js/show_list.js":
-/*!***********************************!*\
-  !*** ./resources/js/show_list.js ***!
-  \***********************************/
+/***/ "./resources/js/shopping/order_button.js":
+/*!***********************************************!*\
+  !*** ./resources/js/shopping/order_button.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function () {
+  "use strict";
+
+  var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+  var createInputWithButtons = __webpack_require__(/*! ../utils/incremental_number_widget */ "./resources/js/utils/incremental_number_widget.js").createInputWithButtons; //
+  // Variables
+  //
+
+
+  var $modalOrder = $("#js-order-modal");
+  var $modalItemUnitsGroup = $modalOrder.find(".js_modal_order_item_units_group");
+  var modalInputUnits = document.getElementById("js_modal_order_item_units");
+  var btnOrderList = document.querySelectorAll(".js-btn-modal-order"); //
+  // Methods
+  //
+
+  var toggleOrderModal = function toggleOrderModal(event) {
+    var btnOrderEl = event.currentTarget;
+    var shoppingElement = document.getElementById(btnOrderEl.dataset.htmlId);
+    var price = shoppingElement.dataset.price;
+    var name = shoppingElement.dataset.name;
+    var imageUrl = shoppingElement.dataset.imageUrl || shoppingElement.dataset.defaultImageUrl;
+    var resModel = shoppingElement.dataset.resModel;
+    var resId = shoppingElement.dataset.resId;
+    $modalOrder.find(".js-order-modal-image-content").attr("src", imageUrl);
+    $modalOrder.find("#js_order_modal-name").val(name);
+    $modalOrder.find("#js_order_modal-price").val(price);
+    $modalOrder.find("#js_order_modal-price").data("price", price);
+    $modalOrder.find("#js_order_modal-res_id").val(resId);
+    $modalOrder.find("#js_order_modal-res_modal").val(resModel);
+    $modalItemUnitsGroup.find("input").val(1);
+    $modalOrder.modal();
+  }; //
+  // Init and event handlers
+  //
+
+
+  createInputWithButtons($modalItemUnitsGroup[0], {
+    "min": 1,
+    oninput: function oninput(event) {
+      var newValue = event.newValue;
+      var $priceInput = $modalOrder.find("#js_order_modal-price");
+      var originalPrice = parseFloat($priceInput.data("price")) || 1;
+      var newPrice = originalPrice * newValue;
+      $priceInput.val(newPrice.toFixed(2));
+    }
+  });
+  btnOrderList.forEach(function (btnOrderEl) {
+    return btnOrderEl.onclick = toggleOrderModal;
+  });
+  return !!$modalOrder.length & !!btnOrderList;
+})();
+
+/***/ }),
+
+/***/ "./resources/js/shopping/sending_order.js":
+/*!************************************************!*\
+  !*** ./resources/js/shopping/sending_order.js ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+(function () {
+  "use strict"; //
+  // Variables
+  //
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+  var btnSubmitOrder = document.querySelector(".js-btn-submit-order"); //
+  // Methods
+  //
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+  var submitOrder = function submitOrder(event) {
+    "use strict"; // let establishment_select = event.currentTarget;
 
-document.addEventListener("DOMContentLoaded", function () {
-  var inputWithButtonList = document.getElementsByClassName("js_input_with_buttons");
+    var loader = document.getElementById("loader");
+    loader.style.display = 'block';
+    var inputTableHashId = document.querySelector('input[name="tableHashId"]');
+    var csrf_token = document.querySelector('meta[name="csrf-token"]').content;
+    var sendOrder = new XMLHttpRequest();
+    sendOrder.open('POST', '/orders/' + inputTableHashId.value, true);
+    sendOrder.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    sendOrder.setRequestHeader("X-CSRF-TOKEN", csrf_token); //
+    // let parameters = [];
+    //
+    // parameters.push({"hola[]": "hola"});
+    // parameters.push({"hola[]": "hola2"});
+    // parameters.push({"hola[]": "hola3"});
+    // parameters.push({"hola[]": "hola4"});
 
-  var _iterator = _createForOfIteratorHelper(inputWithButtonList),
-      _step;
+    sendOrder.onload = function (event) {
+      location.reload();
+    };
 
-  try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var inputWithButton = _step.value;
-      createInputWithButtons(inputWithButton);
-    }
-  } catch (err) {
-    _iterator.e(err);
-  } finally {
-    _iterator.f();
+    sendOrder.onerror = function (event) {
+      loader.style.display = 'none';
+      alert("error, see console!");
+      console.error(event);
+    }; // const urlParameters = parameters.map(param => Object.keys(param)[0] + "=" + param[Object.keys(param)[0]]).join('&');
+    // sendOrder.send(urlParameters);
+
+
+    sendOrder.send();
+  }; //
+  // Init & Event Listeners
+  //
+
+
+  if (btnSubmitOrder) {
+    btnSubmitOrder.onclick = submitOrder;
   }
-});
 
-function createInputWithButtons(inputWithButton) {
+  return !!btnSubmitOrder;
+})();
+
+/***/ }),
+
+/***/ "./resources/js/utils/incremental_number_widget.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/utils/incremental_number_widget.js ***!
+  \*********************************************************/
+/*! exports provided: createInputWithButtons */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createInputWithButtons", function() { return createInputWithButtons; });
+function createInputWithButtons(inputWithButton, opts) {
   var btnSubtract = inputWithButton.querySelector(".js_btn_number_subtract");
 
-  btnSubtract.onclick = function (event) {
-    var inputNumber = document.getElementById(btnSubtract.dataset.inputId);
-    inputNumber.value = (parseInt(inputNumber.value) || 0) - 1;
-  };
+  if (!opts.oninput) {
+    opts.oninput = function () {};
+  }
 
+  if (typeof opts.oninput !== "function") {
+    throw "oninput needs to be a function!";
+  }
+
+  btnSubtract.addEventListener("click", function (event) {
+    var inputNumber = document.getElementById(btnSubtract.dataset.inputId);
+    var previousValue = parseInt(inputNumber.value) || 0;
+    var value = previousValue - 1;
+
+    if (opts.min === undefined || value >= opts.min) {
+      inputNumber.value = value;
+    }
+
+    opts.oninput({
+      previousValue: previousValue,
+      newValue: value,
+      inputElement: inputNumber
+    });
+  });
   var btnAdd = inputWithButton.querySelector(".js_btn_number_add");
-
-  btnAdd.onclick = function (event) {
+  btnAdd.addEventListener("click", function (event) {
     var inputNumber = document.getElementById(btnSubtract.dataset.inputId);
-    inputNumber.value = (parseInt(inputNumber.value) || 0) + 1;
-  };
+    var previousValue = parseInt(inputNumber.value) || 0;
+    var value = previousValue + 1;
+
+    if (opts.max === undefined || value >= opts.max) {
+      inputNumber.value = value;
+    }
+
+    opts.oninput({
+      previousValue: previousValue,
+      newValue: value,
+      inputElement: inputNumber
+    });
+  });
 }
+
+
 
 /***/ }),
 

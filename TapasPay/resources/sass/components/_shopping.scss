@@ -1,0 +1,35 @@
+$shopping-cart-footer: 4em;
+
+.shopping-cart-bar {
+    position: fixed;
+    bottom: 0;
+    z-index: 1020;
+    background: white;
+    height: $shopping-cart-footer;
+    left: 0 !important;
+    margin: 0;
+}
+
+body {
+    margin-bottom: $shopping-cart-footer;
+}
+
+.shopping-list {
+
+    .shopping-element{
+
+        margin-bottom: 1em;
+
+        &:nth-child(odd) {
+            background: #d4d4d4;
+        }
+        &:nth-child(even) {
+            background: #bcbcbc;
+        }
+
+        img  {
+            background: white;
+        }
+    }
+
+}

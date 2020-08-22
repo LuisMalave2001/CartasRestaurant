@@ -35,5 +35,9 @@ class Establishment extends Model
         return $this->hasMany(CarteMenu::class, 'establishment_id');
     }
 
+    public function orders () {
+        return $this->hasMany(Order::class, 'establishment_id');
+    }
+
     protected $table = 'establishments';
 }

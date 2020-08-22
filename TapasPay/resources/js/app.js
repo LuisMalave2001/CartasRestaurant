@@ -7,11 +7,14 @@ if (document.querySelector(".js-menu-setup-page")){
 }
 
 if (document.querySelector(".js-shopping-list")){
+    require("./shopping/order_button");
     require("./shopping/images_modal");
+    require("./shopping/sending_order");
+}
+
+if (document.querySelector(".js-shopping-list")){
 }
 
 if (document.querySelector(".js-qr-block")){
     require("./establishment_menu_settings/render_qr");
 }
-
-require("./show_list");
