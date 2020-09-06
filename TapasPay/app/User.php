@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\OrderSession;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -51,6 +51,18 @@ class User extends Authenticatable
         }
 
         return $this->currentEstablishment;
+    }
+
+    public function getSessionCurrentEstablishment() {
+        if (!session()->has('user_current_establishment') || !$this->establishments->contains(session()->get('user_current_establishment')->id)) {
+            session()->put('user_current_establishment', $this->getCurrentEstablishment());
+        }
+        return session()->get('user_current_establishment');
+    }
+
+    public function orderSessions()
+    {
+        return $this->hasMany(OrderSession::class, 'user_id');
     }
 
 }

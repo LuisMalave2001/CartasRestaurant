@@ -16,4 +16,12 @@ class Menu extends Model
         return $this->belongsToMany('App\Models\Product', 'menu_product');
     }
 
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
+
+    // Scopes
+    public function scopeActive($query) {
+        return $query->where('active', 1);
+    }
 }

@@ -18,7 +18,7 @@ class OrderLine extends Model{
     /* Many2one relations */
     public function order_lines()
     {
-        return $this->belongsTo(Order::class, 'order_id');
+        return $this->belongsTo(OrderSession::class, 'order_id');
     }
 
 }

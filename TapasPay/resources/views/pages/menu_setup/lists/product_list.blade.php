@@ -15,12 +15,18 @@
             </thead>
             <tbody>
                 @foreach ($products as $product)
-                    <tr data-id="{{ $product->id }}" data-img-url="{{ $product->image_path }}">
+                    <tr data-id="{{ $product->id }}"
+                        data-img-url="{{ $product->image_path }}"
+                        data-description="{{ $product->description }}"
+                        data-category="{{ $product->category_id }}"
+                        data-table="products">
                         <td class="handle text-center"><i class="fa fa-arrows"></i></td>
 
                         <!-- Fields -->
                         <td class="product-name">{{ $product->name }}</td>
                         <td class="product-price d-none d-sm-table-cell">{{ $product->price }}</td>
+                        <td class="carte-delete-item text-center"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                        <td class="menu-delete-product text-center"><i class="fa fa-trash" aria-hidden="true"></i></td>
 
                         <!-- Actions -->
                         <td class="product-action">

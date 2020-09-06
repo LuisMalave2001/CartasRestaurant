@@ -14,5 +14,14 @@ class Product extends Model
         return $this->hasMany('App\Models\Establishment');
     }
 
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
+
+    // Scopes
+    public function scopeActive($query) {
+        return $query->where('active', 1);
+    }
+
     protected $table = 'products';
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CarteMenu;
+use App\Models\Establishment;
 use App\Models\Menu;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -27,11 +28,8 @@ class MenuSetupController extends Controller
      */
     public function index(Request $request)
     {
-        $products = [];
-        $menus = [];
-        $carte_menus = [];
+        $current_establishment = auth()->user()->getSessionCurrentEstablishment();
 
-        $current_establishment = session()->get("user_current_establishment");
         $products = Product::where('establishment_id', $current_establishment->id)
                             ->orderBy('name')
                             ->orderBy('price')

@@ -29,6 +29,18 @@ class Establishment extends Model
         return $tables;
 
     }
+    public function getCategories () {
+        return Category::where("establishment_id", "=", $this->id)
+//            ->orWhereNull("establishment_id")
+            ->orWhere("is_global", "=", true)
+            ->orderBy('name')
+            ->get();
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(Establishment::class, 'parent_id');
+    }
 
     public function carte_menus()
     {
@@ -36,7 +48,7 @@ class Establishment extends Model
     }
 
     public function orders () {
-        return $this->hasMany(Order::class, 'establishment_id');
+        return $this->hasMany(OrderSession::class, 'establishment_id');
     }
 
     protected $table = 'establishments';

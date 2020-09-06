@@ -16,9 +16,31 @@
     }
 }
 
+#products, #menus {
+    .carte-delete-item {
+        display: none;
+    }
+}
 
-#menus {
+#products, #carte-menus {
+    .menu-delete-product{
+        display: none;
+    }
+}
+
+.carte-delete-item, .menu-delete-product {
+    cursor: pointer;
+}
+
+#menus, #carte-menus {
     .product-price, .product-action {
+        display: none !important;
+    }
+}
+
+#carte-menus {
+
+    .menu-price, .menu-action {
         display: none !important;
     }
 }

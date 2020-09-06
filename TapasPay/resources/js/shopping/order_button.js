@@ -27,8 +27,8 @@
         $modalOrder.find(".js-order-modal-image-content").attr("src", imageUrl);
         $modalOrder.find("#js_order_modal-name").val(name);
 
-        $modalOrder.find("#js_order_modal-price").val(price);
-        $modalOrder.find("#js_order_modal-price").data("price", price);
+        $modalOrder.find("#js_order_modal-total_price").val(price);
+        $modalOrder.find("#js_order_modal-unit_price").val(price);
 
         $modalOrder.find("#js_order_modal-res_id").val(resId);
         $modalOrder.find("#js_order_modal-res_modal").val(resModel);
@@ -45,8 +45,10 @@
         oninput: event => {
             const newValue = event.newValue;
 
-            const $priceInput = $modalOrder.find("#js_order_modal-price");
-            const originalPrice = parseFloat($priceInput.data("price")) || 1;
+            const $priceInput = $modalOrder.find("#js_order_modal-total_price");
+            const $unitPriceInput = $modalOrder.find("#js_order_modal-unit_price");
+
+            const originalPrice = parseFloat($unitPriceInput.val()) || 1;
 
             const newPrice = originalPrice * newValue;
             $priceInput.val(newPrice.toFixed(2));

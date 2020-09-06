@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.shopping')
 
 @section('content')
     <div class="container js-shopping-list shopping-list">
@@ -7,10 +7,10 @@
             <input type="hidden" name="tableHashId" value="{{ $tableHashId }}"/>
         </article>
 
-        @foreach($carte_menus as $carte_menu)
+        @foreach($carte_menus->sortBy('name')   as $carte_menu)
             <article class="row mt-4">
                 <div class="col-12">
-                    @foreach($carte_menu->menus as $menu)
+                    @foreach($carte_menu->menus->sortBy('name') as $menu)
                         <div class="row shopping-element"
                              id="menu-{{ $menu->id }}"
                              data-res-id="{{ $menu->id }}"
@@ -26,11 +26,11 @@
                                      onerror="this.src='{{ asset('storage/images/food_default.png') }}'" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $menu->name }}</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <p class="card-text">{{ $menu ->description }}</p>
                                 </div>
                                 <ul class="list-group list-group-flush">
 
-                                    @foreach($menu->products as $product)
+                                    @foreach($menu->products->sortBy('name') as $product)
                                         <li class="list-group-item">{{ $product->name }}</li>
                                     @endforeach
                                 </ul>
@@ -46,7 +46,7 @@
                         </div>
                     @endforeach
 
-                    @foreach($carte_menu->products as $product)
+                    @foreach($carte_menu->products->sortBy('name') as $product)
                         <div class="row shopping-element"
                              id="product-{{ $product->id }}"
                              data-res-id="{{ $product->id }}"
@@ -61,7 +61,7 @@
                                      onerror="this.src='{{ asset('storage/images/food_default.png') }}'" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $product->name }}</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <p class="card-text">{{ $product->description }}</p>
                                 </div>
                                 <div class="card-body">
                                     <button class="btn btn-primary js-btn-modal-order w-100"
@@ -117,8 +117,11 @@
                         @csrf
 
                         <section class="container-fluid">
+
                             <input type="hidden" name="res_id" readonly="readonly" id="js_order_modal-res_id"/>
                             <input type="hidden" name="res_table" readonly="readonly" id="js_order_modal-res_modal"/>
+                            <input type="hidden" name="unit_price" readonly="readonly" id="js_order_modal-unit_price"/>
+
                             <section class="row">
                                 <img class="img-responsive js-order-modal-image-content w-100">
                             </section>
@@ -141,10 +144,10 @@
 
 
                                     <div class="input-group mb-3">
-                                        <input type="text" name="price" class="form-control" readonly="readonly"
-                                               id="js_order_modal-price"/>
+                                        <input type="text" name="total_price" class="form-control" readonly="readonly"
+                                               id="js_order_modal-total_price"/>
                                         <div class="input-group-append">
-                                            <span class="input-group-text" id="js_order_modal-price">€</span>
+                                            <span class="input-group-text">€</span>
                                         </div>
                                     </div>
 
@@ -188,7 +191,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">{{ __('shopping.add_to_cart') }}</button>
+                        <button type="submit" class="btn btn-primary loading-on-click">{{ __('shopping.add_to_cart') }}</button>
                     </div>
                 </form>
 

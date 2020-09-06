@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CarteMenu;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class CarteMenuController extends Controller
@@ -20,7 +21,7 @@ class CarteMenuController extends Controller
     public function create(Request $request)
     {
 
-        $user_current_establishment = session()->get("user_current_establishment");
+        $user_current_establishment = auth()->user()->getSessionCurrentEstablishment();
 
         $carteMenu = new CarteMenu();
         $carteMenu->name = $request->input('name') ?: 'New carte menu';
@@ -45,6 +46,38 @@ class CarteMenuController extends Controller
         $carteMenu->save();
 
         return redirect('/');
+    }
+
+    public function updateItemsRelations(Request $request) {
+
+        $newItemsRelations = $request->json();
+
+        if ($newItemsRelations) {
+            foreach ($newItemsRelations as $carteMenuId => $itemsList) {
+                if ($itemsList) {
+                    $carteMenu = CarteMenu::find($carteMenuId);
+
+                    if (isset($itemsList["menus"])){
+                        if (empty($itemsList["menus"])) {
+                            $carteMenu->menus()->detach();
+                        } else {
+                            $carteMenu->menus()->sync($itemsList["menus"]);
+                        }
+                    }
+
+                    if (isset($itemsList["products"])){
+                        if (empty($itemsList["products"])) {
+                            $carteMenu->products()->detach();
+                        } else {
+                            $carteMenu->products()->sync($itemsList["products"]);
+                        }
+                    }
+
+                }
+            }
+        }
+
+        return response("success", 200);
     }
 }
 ?>

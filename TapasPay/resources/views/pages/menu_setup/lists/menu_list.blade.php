@@ -8,22 +8,30 @@
             </div>
             <div class="col-12 col-md-4 text-center d-inline-block text-center" >
                 <button id="btn-save-menu-list"
-                        class="btn btn-add-element text-center mb-3 w-100" disabled>{{ __('menu_setup.save') }}</button>
+                        class="btn btn-secondary text-center mb-3 w-100" disabled>{{ __('menu_setup.save') }}</button>
             </div>
         </div>
         <table id="menus" class="table table-hover">
             <thead>
-                <th>{{ __('menu_setup.name') }}</th>
+                <th colspan="2">{{ __('menu_setup.name') }}</th>
                 <th class="d-none d-sm-table-cell">{{ __('menu_setup.price') }}</th>
                 <th class="text-center">{{ __('menu_setup.actions') }}</th>
             </thead>
             <tbody>
                 @foreach ($menus as $menu)
-                    <tr data-id="{{ $menu->id }}" data-img-url="{{ $menu->image_path }}" class="js-menu-product-properties">
+                    <tr data-id="{{ $menu->id }}"
+                        data-table="menus"
+                        data-img-url="{{ $menu->image_path }}"
+                        data-description="{{ $menu->description }}"
+                        data-category="{{ $menu->category_id }}"
+                        class="js-menu-product-properties">
+
+                        <td class="handle text-center"><i class="fa fa-arrows"></i></td>
 
                         <!-- fields -->
                         <td class="menu-name">{{ $menu->name }}</td>
                         <td class="menu-price d-none d-sm-table-cell">{{ $menu->price }}</td>
+                        <td class="carte-delete-item text-center"><i class="fa fa-trash" aria-hidden="true"></i></td>
 
                         <!-- Actions -->
                         <td class="menu-action">
@@ -40,14 +48,15 @@
                             </div>
                         </td>
                     </tr>
-                    <tr data-id="{{ $menu->id }}" class="menu-product-list">
-                        <td colspan="3">
+                    <tr data-id="{{ $menu->id }}" class="menu-product-list" data-table="menus">
+                        <td colspan="4">
                             <table class="w-100 table">
-                                <tbody>
+                                <tbody data-id="{{ $menu->id }}">
                                     @foreach ($menu->products as $product)
-                                        <tr data-id="{{ $product->id }}" >
+                                        <tr data-id="{{ $product->id }}" data-table="products">
                                             <td class="handle text-center"><i class="fa fa-arrows"></i></td>
                                             <td class="product-name">{{ $product->name }}</td>
+                                            <td class="menu-delete-product text-center"><i class="fa fa-trash" aria-hidden="true"></i></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

@@ -12,9 +12,17 @@ if (document.querySelector(".js-shopping-list")){
     require("./shopping/sending_order");
 }
 
+if ( document.querySelectorAll(".js_button_remove_order_line")){
+    require("./shopping/shopping_cart_control");
+}
+
 if (document.querySelector(".js-shopping-list")){
 }
 
 if (document.querySelector(".js-qr-block")){
     require("./establishment_menu_settings/render_qr");
+}
+
+if (document.querySelector('.js_category_page')) {
+    require("./establishment_menu_settings/categories_page");
 }

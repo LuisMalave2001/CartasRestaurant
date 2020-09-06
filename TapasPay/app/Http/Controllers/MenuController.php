@@ -6,6 +6,7 @@ use App\Models\Establishment;
 use App\Models\Menu;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
+
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 class MenuController extends Controller
 {
     use SoftDeletes;
+
     /**
      * Create a new controller instance.
      *
@@ -26,12 +28,14 @@ class MenuController extends Controller
     public function create(Request $request)
     {
 
-        $user_current_establishment = session()->get("user_current_establishment");
+        $user_current_establishment = auth()->user()->getSessionCurrentEstablishment();
 
         $menu = new Menu();
         $menu->name = $request->input('name') ?: 'Default menu';
+        $menu->description = $request->input('description') ?: '';
         $menu->price = floatval($request->input('price') ?: 0.0);
         $menu->establishment_id = $user_current_establishment->id;
+        $menu->category_id = $request->input('category_id') ?: null;
         $menu->save();
 
         return redirect('/');
@@ -55,9 +59,31 @@ class MenuController extends Controller
 
         $menu->name = $request->input('name') ?: $menu->name;
         $menu->price = floatval($request->input('price')) ?: $menu->price;
+        $menu->description = $request->input('description') ?: $menu->description;
+        $menu->category_id = $request->input('category_id') ?: null;
+
         $menu->save();
 
         return redirect('/');
     }
+
+    public function updateProductRelations(Request $request)
+    {
+
+        $newProductRelations = $request->json();
+
+        if ($newProductRelations) {
+            foreach ($newProductRelations as $menuId => $productIds) {
+                if (empty($productIds)) {
+                    Menu::find($menuId)->products()->detach();
+                } else {
+                    Menu::find($menuId)->products()->sync($productIds);
+                }
+            }
+        }
+
+        return response("success", 200);
+    }
 }
+
 ?>

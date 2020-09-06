@@ -24,7 +24,7 @@ class ProductController extends Controller
     public function create(Request $request)
     {
 
-        $user_current_establishment = session()->get("user_current_establishment");
+        $user_current_establishment = auth()->user()->getSessionCurrentEstablishment();
 
         $product = new Product();
 
@@ -36,6 +36,8 @@ class ProductController extends Controller
         $product->name = $request->input('name') ?: 'Default product';
         $product->price = floatval($request->input('price') ?: 0.0);
         $product->establishment_id = $user_current_establishment->id;
+        $product->description = $request->input('description') ?: '';
+        $product->category_id = $request->input('category_id') ?: null;
         $product->save();
 
         return redirect('/');
@@ -59,6 +61,9 @@ class ProductController extends Controller
 
         $product->name = $request->input('name') ?: $product->name;
         $product->price = floatval($request->input('price')) ?: $product->price;
+        $product->description = $request->input('description') ?: $product->description;
+            $product->category_id = $request->input('category_id') ?: null;
+
         $product->save();
 
         return redirect('/');

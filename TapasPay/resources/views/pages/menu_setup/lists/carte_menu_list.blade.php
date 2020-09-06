@@ -8,7 +8,7 @@
             </div>
             <div class="col-12 col-md-4 text-center d-inline-block text-center">
                 <button id="btn-save-carte-menu-list"
-                        class="btn btn-add-element text-center mb-3 w-100" disabled>{{ __('menu_setup.save') }}</button>
+                        class="btn btn-secondary text-center mb-3 w-100" disabled>{{ __('menu_setup.save') }}</button>
             </div>
         </div>
         <table id="carte-menus" class="table table-hover">
@@ -36,6 +36,32 @@
                                     <li><button class="dropdown-item btn-hide-carte-menu" href="#">Active</button></li>
                                 </ul>
                             </div>
+                        </td>
+                    </tr>
+                    <tr data-id="{{ $carte_menu->id }}" class="carte-menu-items-list">
+                        <td colspan="3">
+                            <table class="w-100 table">
+                                <tbody data-id="{{ $carte_menu->id }}">
+
+
+                                @foreach ($carte_menu->products as $product)
+                                    <tr data-id="{{ $product->id }}" data-table="products">
+                                        <td class="handle text-center"><i class="fa fa-arrows"></i></td>
+                                        <td class="product-name">{{ $product->name }}</td>
+                                        <td class="carte-delete-item text-center"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                                    </tr>
+                                @endforeach
+
+                                @foreach ($carte_menu->menus as $menu)
+                                    <tr data-id="{{ $menu->id }}" data-table="menus">
+                                        <td class="handle text-center"><i class="fa fa-arrows"></i></td>
+                                        <td class="product-name">{{ $menu->name }}</td>
+                                        <td class="carte-delete-item text-center"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                                    </tr>
+                                @endforeach
+
+                                </tbody>
+                            </table>
                         </td>
                     </tr>
                 @endforeach

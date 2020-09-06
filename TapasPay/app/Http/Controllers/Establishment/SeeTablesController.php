@@ -10,7 +10,7 @@ class SeeTablesController extends Controller
 
     function __invoke()
     {
-        $user_current_establishment = session()->get("user_current_establishment");
+        $user_current_establishment = auth()->user()->getSessionCurrentEstablishment();
 
         $tables = $user_current_establishment->getTables();
 

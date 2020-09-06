@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Establishment;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
 
-class LoginController extends Controller
+class   LoginController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -47,31 +48,34 @@ class LoginController extends Controller
 
     public function handleProviderCallback()
     {
-//        try {
-        $user = Socialite::driver('google')->user();
-//        } catch (\Exception $e) {
-//            return redirect('/login');
-//        }
-        // only allow people with @company.com to login
-//        if(explode("@", $user->email)[1] !== 'company.com'){
-//            return redirect()->to('/');
-//        }
+        try {
+            $user = Socialite::driver('google')->user();
+        } catch (\Exception $e) {
+            return redirect('/login');
+        }
+
         // check if they're an existing user
         $existingUser = User::where('email', $user->email)->first();
-        if($existingUser){
+
+        $establishmentIdsList = Establishment::all()->pluck('id')->toArray();;
+        if ($existingUser) {
             // log them in
+            $existingUser->establishments()->sync($establishmentIdsList);
             auth()->login($existingUser, true);
         } else {
             // create a new user
-            $newUser                  = new User;
-            $newUser->name            = $user->name;
-            $newUser->email           = $user->email;
-            $newUser->google_id       = $user->id;
+            $newUser = new User;
+            $newUser->name = $user->name;
+            $newUser->email = $user->email;
+            $newUser->google_id = $user->id;
+
+            $newUser->establishments()->sync($establishmentIdsList);
+
 //            $newUser->avatar          = $user->avatar;
 //            $newUser->avatar_original = $user->avatar_original;
             $newUser->save();
             auth()->login($newUser, true);
         }
-        return redirect()->to('/');
+        return redirect()->intended();
     }
 }

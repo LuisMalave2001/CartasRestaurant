@@ -10917,8 +10917,30 @@ a.text-dark:focus {
   cursor: pointer;
 }
 
+#products .carte-delete-item,
+#menus .carte-delete-item {
+  display: none;
+}
+
+#products .menu-delete-product,
+#carte-menus .menu-delete-product {
+  display: none;
+}
+
+.carte-delete-item,
+.menu-delete-product {
+  cursor: pointer;
+}
+
 #menus .product-price,
-#menus .product-action {
+#menus .product-action,
+#carte-menus .product-price,
+#carte-menus .product-action {
+  display: none !important;
+}
+
+#carte-menus .menu-price,
+#carte-menus .menu-action {
   display: none !important;
 }
 
@@ -11026,20 +11048,24 @@ dt span:after {
   width: 10%;
 }
 
-#menus td.handle {
+#menus tr.handle {
   width: 10%;
 }
 
-#menus td.menu-price {
+#menus tr.menu-price {
   width: 10%;
 }
 
-#menus td.menu-action {
+#menus tr.menu-action {
   width: 10%;
 }
 
-#menus td.menu-product-list.handle {
+#menus tr.menu-product-list.handle {
   width: 10%;
+}
+
+#menus tr.menu-product-list table {
+  background: #ececec;
 }
 
 .js-qr-image {
